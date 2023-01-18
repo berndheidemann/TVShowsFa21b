@@ -7,13 +7,8 @@ import {DataService} from "./data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TVShowsFa21b';
 
   constructor(private dataService: DataService) {
   }
 
-  isDetailShowSet() {
-    return this.dataService.detailShow != undefined;
-
-  }
 }

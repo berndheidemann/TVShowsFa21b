@@ -16,8 +16,8 @@ export class ShowDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get show(): Show | undefined {
-    return this.dataService.detailShow;
+  get show$(): Observable<Show> {
+    return this.dataService.detailShow$;
   }
 
 

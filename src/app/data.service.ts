@@ -8,7 +8,7 @@ import {Observable, of} from "rxjs";
 })
 export class DataService {
   public shows: Show[] = [];
-  public detailShow: Show | undefined;
+  public detailShow$: Observable<Show> = of(new Show());
 
   constructor(private fetchShowDataFromAPI: FetchShowDataFromAPIService) {
     this.shows.push(new Show(1, 'Breaking Bad'));
@@ -21,8 +21,6 @@ export class DataService {
   }
 
   setDetailShow(show: Show) {
-    this.fetchShowDataFromAPI.fetch(show).subscribe(fetchedShow => {
-      this.detailShow = fetchedShow;
-    });
+    this.detailShow$ = this.fetchShowDataFromAPI.fetch(show);
   }
 }
